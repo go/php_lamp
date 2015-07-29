@@ -1,0 +1,17 @@
+web:
+  build: .
+  dockerfile: Dockerfile
+  command: httpd -D FOREGROUND
+  ports:
+    - "80:80"
+  volumes:
+    - ./html:/var/www/html
+  links:
+    - db
+db:
+  image: mysql
+  volumes:
+    - /mnt/sda1/var/lib/mysql:/var/lib/mysql:rw
+    - /Users/go/work/programing/lamp/my.cnf.server:/etc/mysql/my.cnf
+  environment:
+    - MYSQL_ROOT_PASSWORD=MySQLAdmin
