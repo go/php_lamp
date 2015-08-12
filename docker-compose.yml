@@ -3,7 +3,7 @@ web:
   dockerfile: Dockerfile
   command: httpd -D FOREGROUND
   ports:
-    - "80:80"
+    - 80
   volumes:
     - ./html:/var/www/html
   links:
