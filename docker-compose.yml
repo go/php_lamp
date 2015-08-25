@@ -1,9 +1,15 @@
+lb:
+  image: tutum/haproxy
+  ports:
+    - "80:80"
+  links: 
+    - web
 web:
   build: .
   dockerfile: Dockerfile
   command: httpd -D FOREGROUND
-  ports:
-    - 80
+  expose:
+    - "80"
   volumes:
     - ./html:/var/www/html
   links:
