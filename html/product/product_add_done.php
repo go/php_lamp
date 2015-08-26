@@ -9,6 +9,7 @@
     try {
       $pro_name  = $_POST['name'];
       $pro_price = $_POST['price'];
+      $pro_gazou_name = $_POST['gazou_name'];
 
       $dsn      = 'mysql:dbname=Shop;host=db;charset=utf8';
       $user     = 'shopadmin';
@@ -17,10 +18,11 @@
 
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-      $sql    = 'INSERT INTO mst_product(name,price) VALUES(?,?)';
+      $sql    = 'INSERT INTO mst_product(name,price,gazou) VALUES(?,?,?)';
       $stmt   = $dbh->prepare($sql);
       $data[] = $pro_name;
       $data[] = $pro_price;
+      $data[] = $pro_gazou_name;
       $stmt->execute($data);
 
       $dbh = null;
