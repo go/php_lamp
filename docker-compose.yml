@@ -5,9 +5,7 @@ lb:
   links: 
     - web
 web:
-  build: .
-  dockerfile: Dockerfile
-  command: httpd -D FOREGROUND
+  image: gochiba/php_lamp
   expose:
     - "80"
   volumes:
@@ -18,6 +16,6 @@ db:
   image: mysql
   volumes:
     - /mnt/sda1/var/lib/mysql:/var/lib/mysql:rw
-    - /Users/go/work/programing/lamp/my.cnf.server:/etc/mysql/my.cnf
+    - ./my.cnf.server:/etc/mysql/my.cnf
   environment:
     - MYSQL_ROOT_PASSWORD=MySQLAdmin
