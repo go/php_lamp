@@ -21,34 +21,40 @@
   </head>
   <body>
     <?php
-      $staff_name  = $_POST["name"];
-      $staff_pass  = md5($_POST["pass"]);
-      $staff_pass2 = md5($_POST["pass2"]);
+      $staff_name  = $_POST['name'];
+      $staff_pass  = md5($_POST['pass']);
+      $staff_pass2 = md5($_POST['pass2']);
 
-      if ($staff_name == "") {
-        print "スタッフ名が入力されていません<br>";
-        print "<input type='button' onclick='history.back()' value='戻る'>";
+      if ($staff_name == '') {
+        print 'スタッフ名が入力されていません<br>';
+        print '<input type="button" onclick="history.back()" value="戻る">';
         exit();
       } else {
-        print "スタッフ名: ";
+        print 'スタッフ名: ';
         print $staff_name;
-        print "<br>";
+        print '<br>';
+      }
+
+      if ($staff_pass == '') {
+        print 'パスワードが入力されていません<br>';
+        print '<input type="button" onclick="history.back()" value="戻る">';
+        exit();
       }
 
       if ($staff_pass != $staff_pass2) {
-        print "パスワードが一致しません<br>";
-        print "<input type='button' onclick='history.back()' value='戻る'>";
+        print 'パスワードが一致しません<br>';
+        print '<input type="button" onclick="history.back()" value="戻る">';
         exit();
       }
 
-      print "上記のスタッフを追加します<br>";
-      print "<form method='post' action='staff_add_done.php'>";
-      print "<input type='hidden' name='name' value='$staff_name'>";
-      print "<input type='hidden' name='pass' value='$staff_pass'>";
-      print "<br>";
-      print "<input type='button' onclick='history.back()' value='戻る'>";
-      print "<input type='submit' value='OK'>";
-      print "</form>";
+      print '上記のスタッフを追加します<br>';
+      print '<form method="post" action="staff_add_done.php">';
+      print '<input type="hidden" name="name" value="'.$staff_name.'">';
+      print '<input type="hidden" name="pass" value="'.$staff_pass.'">';
+      print '<br>';
+      print '<input type="button" onclick="history.back()" value="戻る">';
+      print '<input type="submit" value="OK">';
+      print '</form>';
     ?>
   </body>
 </html>

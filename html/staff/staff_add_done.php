@@ -22,8 +22,8 @@
   <body>
     <?php
       try {
-        $staff_name  = $_POST["name"];
-        $staff_pass  = md5($_POST["pass"]);
+        $staff_name  = $_POST['name'];
+        $staff_pass  = md5($_POST['pass']);
   
         $dsn      = 'mysql:dbname=Shop;host=db;charset=utf8';
         $user     = 'shopadmin';
@@ -48,6 +48,6 @@
       }
     ?>
 
-    <a href="staff_list.php">戻る</a>
+    <a href="./staff_list.php">戻る</a>
   </body>
 </html>

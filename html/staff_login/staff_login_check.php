@@ -1,6 +1,6 @@
 <?php
-  $staff_name = $_POST["name"];
-  $staff_pass = $_POST["pass"];
+  $staff_name = $_POST['name'];
+  $staff_pass = $_POST['pass'];
 
   $staff_pass = md5($staff_pass);
 
@@ -23,7 +23,7 @@
 
   if ($rec == false) {
     print 'スタッフ名かパスワードが間違っています<br>';
-    print '<a href="staff_login.html">戻る</a>';
+    print '<a href="./staff_login.html">戻る</a>';
   } else {
     session_start();
     $_SESSION['login'] = 1;
