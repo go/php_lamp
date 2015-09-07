@@ -1,4 +1,6 @@
 <?php
+  require_once('../common/common.php');
+
   session_start();
   session_regenerate_id(true);
 
@@ -25,12 +27,7 @@
         $staff_name  = $_POST['name'];
         $staff_pass  = md5($_POST['pass']);
   
-        $dsn      = 'mysql:dbname=Shop;host=db;charset=utf8';
-        $user     = 'shopadmin';
-        $password = 'adminadmin';
-        $dbh      = new PDO($dsn, $user, $password);
-  
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh = connectDB('Shop', 'db', 'shopadmin', 'adminadmin');
   
         $sql    = 'INSERT INTO mst_staff(name,password) VALUES(?,?)';
         $stmt   = $dbh->prepare($sql);

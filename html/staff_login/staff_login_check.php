@@ -1,15 +1,12 @@
 <?php
+  require_once('../common/common.php');
+
   $staff_name = $_POST['name'];
   $staff_pass = $_POST['pass'];
 
   $staff_pass = md5($staff_pass);
 
-  $dsn        = 'mysql:dbname=Shop;host=db;charset=utf8';
-  $user       = 'shopadmin';
-  $password   = 'adminadmin';
-  $dbh        = new PDO($dsn, $user, $password);
-
-  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $dbh = connectDB('Shop', 'db', 'shopadmin', 'adminadmin');
 
   $sql    = 'SELECT code FROM mst_staff WHERE name=? AND password=?';
   $stmt   = $dbh->prepare($sql);

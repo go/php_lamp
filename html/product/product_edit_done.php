@@ -1,4 +1,6 @@
 <?php
+  require_once('../common/common.php');
+
   session_start();
   session_regenerate_id(true);
 
@@ -28,12 +30,7 @@
       $pro_gazou_name_old = $_POST['gazou_name_old'];
       $pro_gazou_name = $_POST['gazou_name'];
 
-      $dsn      = 'mysql:dbname=Shop;host=db;charset=utf8';
-      $user     = 'shopadmin';
-      $password = 'adminadmin';
-      $dbh      = new PDO($dsn, $user, $password);
-
-      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $dbh = connectDB('Shop', 'db', 'shopadmin', 'adminadmin');
 
       $sql    = 'UPDATE mst_product SET name=?,price=?,gazou=? WHERE code=?';
       $stmt   = $dbh->prepare($sql);

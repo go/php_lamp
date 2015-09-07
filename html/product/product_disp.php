@@ -1,4 +1,6 @@
 <?php
+  require_once('../common/common.php');
+
   session_start();
   session_regenerate_id(true);
 
@@ -24,12 +26,7 @@
       try {
         $pro_code = $_GET['procode'];
   
-        $dsn      = 'mysql:dbname=Shop;host=db;charset=utf8';
-        $user     = 'shopadmin';
-        $password = 'adminadmin';
-        $dbh      = new PDO($dsn, $user, $password);
-  
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh = connectDB('Shop', 'db', 'shopadmin', 'adminadmin');
   
         $sql    = 'SELECT code,name,price,gazou FROM mst_product WHERE code=?';
         $stmt   = $dbh->prepare($sql);

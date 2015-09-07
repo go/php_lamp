@@ -1,4 +1,6 @@
 <?php
+  require_once('../common/common.php');
+
   session_start();
   session_regenerate_id(true);
 
@@ -26,12 +28,7 @@
         $staff_name  = $_POST['name'];
         $staff_pass  = $_POST['pass'];
   
-        $dsn      = 'mysql:dbname=Shop;host=db;charset=utf8';
-        $user     = 'shopadmin';
-        $password = 'adminadmin';
-        $dbh      = new PDO($dsn, $user, $password);
-  
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh = connectDB('Shop', 'db', 'shopadmin', 'adminadmin');
   
         $sql    = 'UPDATE mst_staff SET name=?,password=? WHERE code=?';
         $stmt   = $dbh->prepare($sql);
