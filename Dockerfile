@@ -1,6 +1,8 @@
 FROM centos:6.6
 MAINTAINER go_chiba <go.chiba@gmail.com>
 
+RUN yum update -y
+
 RUN yum install -y \
     httpd \
     mysql
