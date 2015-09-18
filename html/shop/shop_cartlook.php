@@ -63,7 +63,7 @@
     <br>
     カートの中身<br>
     <br>
-    <form method="post" action="kazu_change.php">
+    <form method="post" action="./kazu_change.php">
     <table border="1">
     <tr>
         <td>商品</td>
@@ -88,8 +88,10 @@
     </table>
     <input type="hidden" name="max" value="<?php print $max; ?>">
     <input type="submit" value="数量変更"><br>
-    <a href="./shop_list.php">商品一覧へ戻る</a>
     </form>
-
+    <form method="get" action="./shop_list.php">
+      <input type="submit" value="戻る"><br>
+    </form>
+    <a href="./shop_form.php">購入手続きへ進む</a>
   </body>
 </html>
