@@ -27,7 +27,7 @@
     
       if ($staff_name == "") {
         print 'スタッフ名が入力されていません<br>';
-      } else {'
+      } else {
         print 'スタッフ名: ';
         print $staff_name;
         print '<br>';
